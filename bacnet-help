@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo 'Usage: docker run -it bacnet <command> <args>'
+echo '... where <command> is one of:'
+ls -C /usr/local/bin

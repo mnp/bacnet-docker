@@ -1,0 +1,26 @@
+
+version: '3'
+services:
+
+  whois:
+    image: bacnet
+    depends_on:
+      - server1
+      - server2
+    command: ["bacwi"]
+    network_mode: bridge
+
+  server1:
+    image: bacnet
+    command: ["bacserv", "200001"]
+    network_mode: bridge
+
+  server2:
+    image: bacnet
+    command: ["bacserv", "200002"]
+    network_mode: bridge
+
+  server3:
+    image: bacnet
+    command: ["bacserv", "200003"]
+    network_mode: bridge
