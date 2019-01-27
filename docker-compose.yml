@@ -7,6 +7,7 @@ services:
     depends_on:
       - server1
       - server2
+      - server3
     command: ["bacwi"]
     network_mode: bridge
 
