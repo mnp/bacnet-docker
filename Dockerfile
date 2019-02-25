@@ -10,9 +10,11 @@ RUN apt-get update && apt-get -y install build-essential \
 	&& make \
 	&& rm -f bin/*.txt bin/*.bat \
         && mv bin/* /usr/local/bin \
+        && chmod a+x /usr/local/bin/bacnet-help \
 	&& cd / \
         && rm -rf /bacnet* \
 	&& apt-get -y remove build-essential \
-        && apt-get -y autoremove
+        && apt-get -y autoremove \
+	&& apt-get -y autoclean
 
 CMD ["bacnet-help"]
