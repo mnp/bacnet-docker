@@ -2,26 +2,17 @@
 version: '3'
 services:
 
-  whois:
-    image: bacnet
-    depends_on:
-      - server1
-      - server2
-      - server3
-    command: ["bacwi"]
-    network_mode: bridge
-
-  server1:
+  server:
     image: bacnet
     command: ["bacserv", "200001"]
     network_mode: bridge
 
-  server2:
+  # Pump values into server.
+  # TODO: Needs more convenient Env based config
+  simulator:
     image: bacnet
-    command: ["bacserv", "200002"]
+    depends_on:
+      - server
+    command: ["perl", "/simulator"]
     network_mode: bridge
-
-  server3:
-    image: bacnet
-    command: ["bacserv", "200003"]
-    network_mode: bridge
+    
